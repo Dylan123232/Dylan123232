@@ -1,10 +1,7 @@
-
-from flask import Flask, render_template, request, redirect, url_for
-
 app = Flask(__SBN CONNECT TV__)
 
 # Hardcoded credentials
-USERNAME = "admin"
+USERNAME = "Lundgren"
 PASSWORD = "123456"
 
 @app.route('/')
