@@ -1,0 +1,29 @@
+
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__SBN CONNECT TV__)
+
+# Hardcoded credentials
+USERNAME = "admin"
+PASSWORD = "123456"
+
+@app.route('/')
+def home():
+    return render_template('login.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    
+    if username == USERNAME and password == PASSWORD:
+        return redirect(url_for('dashboard'))
+    else:
+        return "Login Failed! Invalid credentials.", 401
+
+@app.route('/dashboard')
+def dashboard():
+    return "Welcome to the dashboard!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
